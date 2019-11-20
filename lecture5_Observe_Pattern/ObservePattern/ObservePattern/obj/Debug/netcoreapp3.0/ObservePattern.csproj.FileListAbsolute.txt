@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern.deps.json
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern.runtimeconfig.json
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern.runtimeconfig.dev.json
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern.dll
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/bin/Debug/netcoreapp3.0/ObservePattern.pdb
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/obj/Debug/netcoreapp3.0/ObservePattern.csprojAssemblyReference.cache
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/obj/Debug/netcoreapp3.0/ObservePattern.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/obj/Debug/netcoreapp3.0/ObservePattern.AssemblyInfo.cs
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/obj/Debug/netcoreapp3.0/ObservePattern.dll
+/Users/user/Documents/c#/lecture5_Observe_Pattern/ObservePattern/ObservePattern/obj/Debug/netcoreapp3.0/ObservePattern.pdb

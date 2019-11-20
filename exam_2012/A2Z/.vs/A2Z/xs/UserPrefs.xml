@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{43FEBE09-B6EA-4FE1-8A27-E91C513DE93B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="A2Z/Program.cs">
+    <Files>
+      <File FileName="A2Z/Program.cs" Line="17" Column="1" />
+      <File FileName="A2Z/Insurance.cs" Line="13" Column="31" />
+      <File FileName="A2Z/CarInsurance.cs" Line="22" Column="1" />
+      <File FileName="A2Z/WrapCustomer.cs" Line="9" Column="55" />
+      <File FileName="A2Z/IItem.cs" Line="7" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="A2Z" expanded="True">
+            <Node name="A2Z" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.A2Z PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

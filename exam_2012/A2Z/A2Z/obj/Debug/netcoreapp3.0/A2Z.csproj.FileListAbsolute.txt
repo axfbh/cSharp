@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/obj/Debug/netcoreapp3.0/A2Z.csprojAssemblyReference.cache
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/obj/Debug/netcoreapp3.0/A2Z.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/obj/Debug/netcoreapp3.0/A2Z.AssemblyInfo.cs
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z.deps.json
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z.runtimeconfig.json
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z.runtimeconfig.dev.json
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z.dll
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/bin/Debug/netcoreapp3.0/A2Z.pdb
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/obj/Debug/netcoreapp3.0/A2Z.dll
+/Users/user/Documents/c#/exam_2012/A2Z/A2Z/obj/Debug/netcoreapp3.0/A2Z.pdb

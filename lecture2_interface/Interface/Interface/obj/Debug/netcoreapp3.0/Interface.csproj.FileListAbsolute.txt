@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface.deps.json
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface.runtimeconfig.json
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface.runtimeconfig.dev.json
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface.dll
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/bin/Debug/netcoreapp3.0/Interface.pdb
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/obj/Debug/netcoreapp3.0/Interface.csprojAssemblyReference.cache
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/obj/Debug/netcoreapp3.0/Interface.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/obj/Debug/netcoreapp3.0/Interface.AssemblyInfo.cs
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/obj/Debug/netcoreapp3.0/Interface.dll
+/Users/user/Documents/c#/lecture2_interface/Interface/Interface/obj/Debug/netcoreapp3.0/Interface.pdb

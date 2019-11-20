@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{5EB18F1C-73E3-469B-A5CA-747515851F49}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PTR/Program.cs">
+    <Files>
+      <File FileName="PTR/Program.cs" Line="13" Column="44" />
+      <File FileName="PTR/PTR.cs" Line="24" Column="37" />
+      <File FileName="PTR/Customer.cs" Line="26" Column="16" />
+      <File FileName="PTR/IService.cs" Line="16" Column="29" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PTR" expanded="True">
+            <Node name="PTR" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.PTR PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{F2669DD7-DED1-4B1E-8EA9-2AB39EBE2A1E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ObservePattern/WrapWeatherData.cs">
+    <Files>
+      <File FileName="ObservePattern/Program.cs" Line="14" Column="10" />
+      <File FileName="ObservePattern/WeatherData.cs" Line="12" Column="1" />
+      <File FileName="ObservePattern/WrapWeatherData.cs" Line="9" Column="6" />
+      <File FileName="ObservePattern/CurrentCondtion.cs" Line="11" Column="10" />
+      <File FileName="ObservePattern/Statistic.cs" Line="8" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ObservePattern" expanded="True">
+            <Node name="ObservePattern" expanded="True">
+              <Node name="WrapWeatherData.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ObservePattern PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

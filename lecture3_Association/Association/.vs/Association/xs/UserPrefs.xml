@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{06A4E459-AD4F-40F3-BD6D-05C008658254}|Default">
+  <MonoDevelop.Ide.ItemProperties.Association PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Association/VTNz.cs">
+    <Files>
+      <File FileName="Association/Program.cs" Line="17" Column="57" />
+      <File FileName="Association/VTNz.cs" Line="38" Column="31" />
+      <File FileName="Association/Inspection.cs" Line="19" Column="27" />
+      <File FileName="Association/WrapInspection.cs" Line="19" Column="37" />
+      <File FileName="Association/IServiceItem.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Association" expanded="True">
+            <Node name="Association" expanded="True">
+              <Node name="VTNz.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

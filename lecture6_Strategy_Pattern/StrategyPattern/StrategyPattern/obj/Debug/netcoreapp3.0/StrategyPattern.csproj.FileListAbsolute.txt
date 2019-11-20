@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern.deps.json
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern.runtimeconfig.json
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern.runtimeconfig.dev.json
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern.dll
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/bin/Debug/netcoreapp3.0/StrategyPattern.pdb
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/obj/Debug/netcoreapp3.0/StrategyPattern.csprojAssemblyReference.cache
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/obj/Debug/netcoreapp3.0/StrategyPattern.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/obj/Debug/netcoreapp3.0/StrategyPattern.AssemblyInfo.cs
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/obj/Debug/netcoreapp3.0/StrategyPattern.dll
+/Users/user/Documents/c#/lecture6_Strategy_Pattern/StrategyPattern/StrategyPattern/obj/Debug/netcoreapp3.0/StrategyPattern.pdb

@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association.deps.json
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association.runtimeconfig.json
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association.runtimeconfig.dev.json
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association.dll
+/Users/user/Documents/c#/lecture3_Association/Association/Association/bin/Debug/netcoreapp3.0/Association.pdb
+/Users/user/Documents/c#/lecture3_Association/Association/Association/obj/Debug/netcoreapp3.0/Association.csprojAssemblyReference.cache
+/Users/user/Documents/c#/lecture3_Association/Association/Association/obj/Debug/netcoreapp3.0/Association.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/lecture3_Association/Association/Association/obj/Debug/netcoreapp3.0/Association.AssemblyInfo.cs
+/Users/user/Documents/c#/lecture3_Association/Association/Association/obj/Debug/netcoreapp3.0/Association.dll
+/Users/user/Documents/c#/lecture3_Association/Association/Association/obj/Debug/netcoreapp3.0/Association.pdb

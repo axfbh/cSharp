@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{19116D93-F41F-4392-A47D-111B43553949}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Interface/Park.cs">
+    <Files>
+      <File FileName="Interface/GeneralParkingKiosk.cs" Line="13" Column="48" IsPinned="True" />
+      <File FileName="Interface/Program.cs" Line="17" Column="1" />
+      <File FileName="Interface/StaffParkingKiosk.cs" Line="10" Column="38" />
+      <File FileName="Interface/StudentParkingKiosk.cs" Line="16" Column="2" />
+      <File FileName="Interface/WrapGeneral.cs" Line="16" Column="30" />
+      <File FileName="Interface/WrapStaff.cs" Line="15" Column="30" />
+      <File FileName="Interface/WrapStudent.cs" Line="15" Column="29" />
+      <File FileName="Interface/IParking.cs" Line="9" Column="10" />
+      <File FileName="Interface/Park.cs" Line="23" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Interface" expanded="True">
+            <Node name="Interface" expanded="True">
+              <Node name="Park.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Interface PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

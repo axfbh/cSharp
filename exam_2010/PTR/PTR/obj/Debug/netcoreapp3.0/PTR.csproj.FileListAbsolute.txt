@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR.deps.json
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR.runtimeconfig.json
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR.runtimeconfig.dev.json
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR.dll
+/Users/user/Documents/c#/exam_2010/PTR/PTR/bin/Debug/netcoreapp3.0/PTR.pdb
+/Users/user/Documents/c#/exam_2010/PTR/PTR/obj/Debug/netcoreapp3.0/PTR.csprojAssemblyReference.cache
+/Users/user/Documents/c#/exam_2010/PTR/PTR/obj/Debug/netcoreapp3.0/PTR.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/exam_2010/PTR/PTR/obj/Debug/netcoreapp3.0/PTR.AssemblyInfo.cs
+/Users/user/Documents/c#/exam_2010/PTR/PTR/obj/Debug/netcoreapp3.0/PTR.dll
+/Users/user/Documents/c#/exam_2010/PTR/PTR/obj/Debug/netcoreapp3.0/PTR.pdb

@@ -1,0 +1,11 @@
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance.deps.json
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance.runtimeconfig.json
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance.runtimeconfig.dev.json
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance.dll
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/bin/Debug/netcoreapp3.0/inheritance.pdb
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/obj/Debug/netcoreapp3.0/inheritance.csprojAssemblyReference.cache
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/obj/Debug/netcoreapp3.0/inheritance.AssemblyInfoInputs.cache
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/obj/Debug/netcoreapp3.0/inheritance.AssemblyInfo.cs
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/obj/Debug/netcoreapp3.0/inheritance.dll
+/Users/user/Documents/c#/lecture1_inheritance/inheritance/inheritance/obj/Debug/netcoreapp3.0/inheritance.pdb
