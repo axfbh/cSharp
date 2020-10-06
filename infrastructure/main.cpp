@@ -1,5 +1,3 @@
-// Sequential version of the bucket sort routine
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,12 +84,8 @@ int main(int argc,char *argv[]) {
    //动态分配float数组内存根据用户输入的大小  (master)
   int nitems=100000;
     
-
-  if(argc==2)
-      nitems=atoi(argv[1]);
     
     float *data=NULL;
-    float *water;
 
     int sendCounts[k];
     int recvCounts[k]; // for ata
@@ -117,7 +111,7 @@ int main(int argc,char *argv[]) {
     
     //提前通知一下节点，各个节点要准备接收多少数
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
-    water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
+    float *water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
 
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
@@ -136,23 +130,21 @@ int main(int argc,char *argv[]) {
     float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2)*0.0001,buckets);
 
     send_signal_gather(recvSingalCount-2,recvCounts);
-    data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
+    float * data1= receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
     
     if(world_rank==0)
     {
         t_finish = clock();
         double t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
         printf("%f seconds\n", t_duration);
-        
 //        for (int i=0; i<nitems; i++) {
 //            cout<<data[i]<<endl;
 //        }
-        
-        check(data, nitems);
+        check(data1, nitems);
     }
     
+    free(data1);
     free(data);
-   
     MPI_Finalize();
     return 0;
 }
