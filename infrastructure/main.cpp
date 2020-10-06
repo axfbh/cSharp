@@ -114,7 +114,7 @@ int main(int argc,char *argv[]) {
     //提前通知一下节点，各个节点要准备接收多少数
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
     water=receive_send_data_scav(data, sendCounts, &recvSingalCount,k);
-    
+    cout<<"receive_send_data_scav"<<k<<endl;
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
     
@@ -128,12 +128,12 @@ int main(int argc,char *argv[]) {
 
     //排序
     bucket_sort(nbuckets,buckets);
-    
+    cout<<"bucket_sort"<<k<<endl;
     float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2),buckets);
-    
+    cout<<"full_into_big_bucket"<<k<<endl;
     send_signal_gather(recvSingalCount-2,recvCounts);
     data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
-    
+    cout<<"receive_send_data_gatherv"<<k<<endl;
     if(world_rank==0)
     {
         t_finish = clock();
