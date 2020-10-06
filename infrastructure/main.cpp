@@ -219,10 +219,6 @@ float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,in
     float *recvData=(float*)malloc(*recvCounts*sizeof(float));
     
     MPI_Scatterv(sendData, sendCounts, soffset, MPI_FLOAT, recvData, *recvCounts, MPI_FLOAT, 0, MPI_COMM_WORLD);  // 分发数据
-    for (int i=0; i<recvCounts[0]; i++)
-    {
-        cout<<recvData[i]<<endl;
-    }
     delete[] soffset;
     return recvData;
 }
