@@ -145,11 +145,9 @@ int main(int argc,char *argv[]) {
 //        for (int i=0; i<nitems; i++) {
 //            cout<<data[i]<<endl;
 //        }
-        
         check(data, nitems);
     }
-    cout<<"after check"<<endl;
-    free(data);
+    //free(data);
    
     MPI_Finalize();
     return 0;
@@ -193,7 +191,6 @@ void send_signal_gather(int sendCounts,int *recvCounts)
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
 {
-    cout<<"receive_send_data_gatherv"<<endl;
     int *roffset = new int[nbuckets];
     int sum = 0;
     for (int i=0; i<nbuckets; i++)
