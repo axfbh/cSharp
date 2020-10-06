@@ -124,11 +124,12 @@ int main(int argc,char *argv[]) {
     floatMem* buckets = create_small_buckests(nbuckets,bucketCount);
     cout<<"create_small_buckests"<<endl;
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
+    cout<<"distribute_water"<<endl;
     delete[] water;
 
     //排序
     bucket_sort(nbuckets,buckets);
-    cout<<"bucket_sort"<<k<<endl;
+    cout<<"bucket_sort"<<endl;
     float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2),buckets);
     cout<<"full_into_big_bucket"<<endl;
     send_signal_gather(recvSingalCount-2,recvCounts);
