@@ -87,7 +87,7 @@ int main(int argc,char *argv[]) {
     
     
     float *data=NULL;
-    float *water;
+    float *water=NULL;
 
     int sendCounts[k];
     int recvCounts[k]; // for ata
