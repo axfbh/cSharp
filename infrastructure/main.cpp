@@ -171,7 +171,7 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
     
     for (int i=0,total=0; i<nbuckets; total+=buckets[i].length,i++) {
         copy(buckets[i].arr,buckets[i].arr+buckets[i].length,bucket+total);
-        free(buckets[i].arr);
+        //free(buckets[i].arr);
     }
     //free(buckets);
     return bucket;
