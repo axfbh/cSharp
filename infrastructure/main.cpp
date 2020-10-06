@@ -185,6 +185,7 @@ void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 void send_signal_gather(int sendCounts,int *recvCounts)
 {
     MPI_Gather(&sendCounts,1,MPI_INT,recvCounts,1,MPI_INT,0,MPI_COMM_WORLD);
+    cout<<"send_signal_gather"<<end
 }
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
@@ -200,7 +201,8 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
     
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
-    delete[] roffset;
+      cout<<"receive_send_data_gatherv"<<endl;
+        free(roffset);
     return final_bucket;
 }
 
@@ -219,7 +221,8 @@ float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,in
     float *recvData=(float*)malloc(*recvCounts*sizeof(float));
     
     MPI_Scatterv(sendData, sendCounts, soffset, MPI_FLOAT, recvData, *recvCounts, MPI_FLOAT, 0, MPI_COMM_WORLD);  // 分发数据
-    delete[] soffset;
+    cout<<"receive_send_data_scav"<<endl;
+       free(soffset);
     return recvData;
 }
 
