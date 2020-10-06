@@ -179,7 +179,7 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
         free(buckets[i].arr);
     }
     cout<<"end:full_into_big_bucket"<<endl;
-    free(buckets);
+    //free(buckets);
     return bucket;
 }
 
