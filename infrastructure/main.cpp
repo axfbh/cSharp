@@ -122,7 +122,7 @@ int main(int argc,char *argv[]) {
     float bucketCount = ((xmax - xmin) / nbuckets)+1;
 
     floatMem* buckets = create_small_buckests(nbuckets,bucketCount);
-
+    cout<<"create_small_buckests"<<endl;
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
     delete[] water;
 
