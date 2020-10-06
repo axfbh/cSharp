@@ -225,7 +225,7 @@ float *distribute_water_to_processor(int ndata,float max, float min, int nbucket
 {
     //drand48 返回服从均匀分布的·[0.0, 1.0) 之间的 double 型随机数。
     //设置100000个随机值在[10,250000]范围内 (master)
-    float *data=new float[ndata+8];
+    float *data=new float[ndata+(2*nbuckets)];
     for(int i=0;i<ndata;i++)
     {
         data[i]=drand48()*(max-min-1)+min;
