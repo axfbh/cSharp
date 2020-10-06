@@ -130,7 +130,7 @@ int main(int argc,char *argv[]) {
     //排序
     bucket_sort(nbuckets,buckets);
     
-    float *bucket=full_into_big_bucket(nbuckets,recvSingalCount-2,,buckets);
+    float *bucket=full_into_big_bucket(nbuckets,recvSingalCount-2,buckets);
     cout<<"full_into_big_bucket"<<endl;
     
     send_signal_gather(recvSingalCount-2,recvCounts);
