@@ -307,7 +307,7 @@ floatMem* create_small_buckests(int nbuckets,int bucketCount)
 float* create_big_bucket(int nbuckets, int bucketCount)
 {
  int ntotal = nbuckets * bucketCount;
-
+    float *bucket;
   // Pointer to an array of more pointers to each bucket
   if((bucket = (float *)calloc(ntotal, sizeof(float)))==NULL)
   {
