@@ -198,10 +198,9 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
         roffset[i]=sum;
         sum +=recvCounts[i];
     }
-    //cout<<"roffset"<<endl;
-//     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
-      float *final_bucket= new float[nbuckets*sendCounts];
-     cout<<"final_bucket"<<endl;
+    cout<<"roffset"<<endl;
+    float *final_bucket= create_big_bucket(nbuckets,sendCounts);
+    cout<<"final_bucket"<<endl;
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     cout<<"receive_send_data_gatherv"<<endl;
     //free(roffset);
@@ -307,16 +306,8 @@ floatMem* create_small_buckests(int nbuckets,int bucketCount)
 
 float* create_big_bucket(int nbuckets, int bucketCount)
 {
- int ntotal = nbuckets * bucketCount;
+    int ntotal = nbuckets * bucketCount;
    float *aa = new float[ntotal];
-      cout<<"create_big_bucket"<<endl;
-  // Pointer to an array of more pointers to each bucket
-//   if((bucket = (float *)calloc(ntotal, sizeof(float)))==NULL)
-//   {
-//       printf("failed apply the memory");
-//       return NULL;
-//   }
-  // return the address of the array of pointers to float arrays
   return aa;
 }
 
