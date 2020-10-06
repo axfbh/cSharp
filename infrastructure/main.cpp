@@ -232,7 +232,7 @@ float *distribute_water_to_processor(int ndata,float max, float min, int nbucket
         int bktno = (int)floor((data[i] - min) / bucketCount);
         buckets[bktno].push(data[i]);
     }
-    for(int i=0;i<4;i++)
+    for(int i=0;i<nbuckets;i++)
     {
         buckets[i].push(buckets[i].min);
         buckets[i].push(buckets[i].max);
