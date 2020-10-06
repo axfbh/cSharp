@@ -190,6 +190,7 @@ void send_signal_gather(int sendCounts,int *recvCounts)
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
 {
+    cout<<"receive_send_data_gatherv"<<endl;
     int *roffset = new int[nbuckets];
     int sum = 0;
     for (int i=0; i<nbuckets; i++)
