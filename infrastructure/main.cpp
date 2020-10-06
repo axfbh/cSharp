@@ -307,7 +307,8 @@ floatMem* create_small_buckests(int nbuckets,int bucketCount)
 float* create_big_bucket(int nbuckets, int bucketCount)
 {
  int ntotal = nbuckets * bucketCount;
-   float *bucket = new float[ntotal];
+   float *aa = new float[ntotal];
+      cout<<"create_big_bucket"<<endl;
   // Pointer to an array of more pointers to each bucket
 //   if((bucket = (float *)calloc(ntotal, sizeof(float)))==NULL)
 //   {
@@ -315,7 +316,7 @@ float* create_big_bucket(int nbuckets, int bucketCount)
 //       return NULL;
 //   }
   // return the address of the array of pointers to float arrays
-  return bucket;
+  return aa;
 }
 
 /*****************************************************************************/
