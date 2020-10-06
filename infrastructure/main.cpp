@@ -115,6 +115,8 @@ int main(int argc,char *argv[]) {
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
     water=receive_send_data_scav(data, sendCounts, &recvSingalCount,k);
 
+    cout<<"after scav"<<endl;
+    
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
     
@@ -122,15 +124,19 @@ int main(int argc,char *argv[]) {
     float bucketCount = ((xmax - xmin) / nbuckets)+1;
 
     floatMem* buckets = create_small_buckests(nbuckets,bucketCount);
-
+    cout<<"after create_small_buckests"<<endl;
+    
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
+     cout<<"after create_distribute_water"<<endl;
     free(water);
 
     //排序
     bucket_sort(nbuckets,buckets);
-
+    cout<<"after bucket_sort"<<endl;
+    
     float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2)*0.0001,buckets);
-
+    cout<<"after full_into_big_bucket"<<endl;
+    
     send_signal_gather(recvSingalCount-2,recvCounts);
     data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
     
