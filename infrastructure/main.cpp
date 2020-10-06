@@ -128,7 +128,7 @@ int main(int argc,char *argv[]) {
     
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
      cout<<"after create_distribute_water"<<endl;
-    free(water);
+    //free(water);
 
     //排序
     bucket_sort(nbuckets,buckets);
@@ -152,7 +152,7 @@ int main(int argc,char *argv[]) {
         
         check(data, nitems);
     }
-    
+    cout<<"after check"<<endl;
     free(data);
    
     MPI_Finalize();
@@ -212,8 +212,8 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
     
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
-      cout<<"receive_send_data_gatherv"<<endl;
-        free(roffset);
+    cout<<"receive_send_data_gatherv"<<endl;
+    free(roffset);
     return final_bucket;
 }
 
