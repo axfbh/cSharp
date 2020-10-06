@@ -50,7 +50,7 @@ void distribute_water(float *data,int ndata,float min,int bucketCount,floatMem *
 void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num);
 void send_signal_gather(int sendCounts,int *recvCounts);
 
-float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts);
+float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,int nbuckets);
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets);
 /*****************************************************************************/
 int main(int argc,char *argv[]) {
@@ -69,6 +69,7 @@ int main(int argc,char *argv[]) {
     int world_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     
+    cout<<"num process"<<k<<endl;
     if(world_size<4)
     {
         cout<<"processor is not enough" <<endl;
@@ -84,9 +85,6 @@ int main(int argc,char *argv[]) {
    //动态分配float数组内存根据用户输入的大小  (master)
   int nitems=100000;
     
-
-  if(argc==2)
-      nitems=atoi(argv[1]);
     
     float *data=NULL;
     float *water;
@@ -115,7 +113,7 @@ int main(int argc,char *argv[]) {
     
     //提前通知一下节点，各个节点要准备接收多少数
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
-    water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
+    water=receive_send_data_scav(data, sendCounts, &recvSingalCount,k);
 
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
@@ -191,24 +189,37 @@ void send_signal_gather(int sendCounts,int *recvCounts)
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
 {
-    int roffset[]={0,recvCounts[0],recvCounts[0]+recvCounts[1],recvCounts[0]+recvCounts[1]+recvCounts[2]};
+    int *roffset = new int[nbuckets];
+    int sum = 0;
+    for (int i=0; i<nbuckets; i++)
+    {
+        roffset[i]=sum;
+        sum +=recvCounts[i];
+    }
 
     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
     
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
-
+    delete[] roffset;
     return final_bucket;
 }
 
 
-float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts)
+float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,int nbuckets)
 {
-    int soffset[]={0,sendCounts[0],sendCounts[0]+sendCounts[1],sendCounts[0]+sendCounts[1]+sendCounts[2]};
+    int *soffset = new int[nbuckets];
+    int sum = 0;
+    for (int i=0; i<nbuckets; i++)
+    {
+        soffset[i]=sum;
+        sum +=sendCounts[i];
+    }
+
     
     float *recvData=(float*)malloc(*recvCounts*sizeof(float));
     
     MPI_Scatterv(sendData, sendCounts, soffset, MPI_FLOAT, recvData, *recvCounts, MPI_FLOAT, 0, MPI_COMM_WORLD);  // 分发数据
-    
+    delete[] soffset;
     return recvData;
 }
 
