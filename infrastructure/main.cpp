@@ -129,7 +129,7 @@ int main(int argc,char *argv[]) {
     //排序
     bucket_sort(nbuckets,buckets);
     
-    float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2)*0.0001,buckets);
+    float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2),buckets);
     
     send_signal_gather(recvSingalCount-2,recvCounts);
     data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
