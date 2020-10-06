@@ -81,7 +81,7 @@ int main(int argc,char *argv[]) {
    float xmax = 250000;
 
   //多少（分桶）
-  int nbuckets=300;
+  int nbuckets=1000/k;
    //动态分配float数组内存根据用户输入的大小  (master)
   int nitems=100000;
     
