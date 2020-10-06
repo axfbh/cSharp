@@ -185,7 +185,7 @@ void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 void send_signal_gather(int sendCounts,int *recvCounts)
 {
     MPI_Gather(&sendCounts,1,MPI_INT,recvCounts,1,MPI_INT,0,MPI_COMM_WORLD);
-    cout<<"send_signal_gather"<<end
+    cout<<"send_signal_gather"<<endl;
 }
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
