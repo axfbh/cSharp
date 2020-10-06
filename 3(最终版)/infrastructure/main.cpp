@@ -1,15 +1,9 @@
-// Sequential version of the bucket sort routine
-
-#include <math.h>
+#include <cmath>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <iostream>
-#include <vector>
 #include <mpi.h>
+#include <limits.h>
 #define INFINITE INT_MAX
-#define FLOAT_MPI 2
-#define INT_MPI 1
 using namespace std;
 
 struct floatMem
@@ -51,7 +45,7 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets);
 void distribute_water(float *data,int ndata,float min,int bucketCount,floatMem *buckets);
 //send
 
-void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num,int type);
+void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num);
 void send_signal_gather(int sendCounts,int *recvCounts);
 
 float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts);
@@ -118,7 +112,7 @@ int main(int argc,char *argv[]) {
     }
     
     //提前通知一下节点，各个节点要准备接收多少数
-    send_signal_sca(sendCounts,&recvSingalCount,world_rank,1,INT_MPI);
+    send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
     water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
 
     xmax = water[recvSingalCount-1];
@@ -182,17 +176,10 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 }
 
 
-void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num,int type)
+void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 {
-    switch (type) {
-        case 1:
-            MPI_Scatter(sendCounts, num, MPI_INT, recvCounts, num, MPI_INT, 0, MPI_COMM_WORLD);
-            cout<<"myid is "<<rank<<" receive count is "<<*(int*)recvCounts<<endl;
-            break;
-        case 2:
-             MPI_Scatter(sendCounts, num, MPI_FLOAT, recvCounts, num, MPI_FLOAT, 0, MPI_COMM_WORLD);
-            break;
-    }
+    MPI_Scatter(sendCounts, num, MPI_INT, recvCounts, num, MPI_INT, 0, MPI_COMM_WORLD);
+    cout<<"myid is "<<rank<<" receive count is "<<*(int*)recvCounts<<endl;
 }
 
 void send_signal_gather(int sendCounts,int *recvCounts)
@@ -329,5 +316,3 @@ int compare(const void* a, const void* b) {
         return 0;
     return 1;
 }
-
-
