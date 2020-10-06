@@ -1,2 +1,2 @@
 #PBS -j oe -o pi.stdout -l nodes=5:ppn=8 -q pp
-mpiexec -np 18 -machinefile $PBS_NODEFILE /home/s18035845/cSharp/infrastructure/main
+mpiexec -np 17 -machinefile $PBS_NODEFILE /home/s18035845/cSharp/infrastructure/main
