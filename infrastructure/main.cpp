@@ -197,12 +197,12 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
         sum +=recvCounts[i];
     }
     cout<<"roffset"<<endl;
-    float *final_bucket= create_big_bucket(nbuckets,sendCounts);
+    float *bucket = create_big_bucket(nbuckets,sendCounts);
     cout<<"final_bucket"<<endl;
-    MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     cout<<"receive_send_data_gatherv"<<endl;
-     delete[] roffset;
-    return final_bucket;
+     //delete[] roffset;
+    return bucket;
 }
 
 
@@ -306,7 +306,7 @@ float* create_big_bucket(int nbuckets, int bucketCount)
 {
     int ntotal = nbuckets * bucketCount;
     float *aa = new float[ntotal];
-    cout<<"final_bucket"<<endl;
+    cout<<"create_bucket"<<endl;
     return aa;
 }
 
