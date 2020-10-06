@@ -198,9 +198,9 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
         roffset[i]=sum;
         sum +=recvCounts[i];
     }
-
+    cout<<"roffset"<<endl;
     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
-    
+     cout<<"final_bucket"<<endl;
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     cout<<"receive_send_data_gatherv"<<endl;
     //free(roffset);
