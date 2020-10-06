@@ -184,6 +184,7 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 
 void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 {
+      cout<<"start:send_signal_gather"<<endl;
     MPI_Scatter(sendCounts, num, MPI_INT, recvCounts, num, MPI_INT, 0, MPI_COMM_WORLD);
     cout<<"myid is "<<rank<<" receive count is "<<*(int*)recvCounts<<endl;
 }
