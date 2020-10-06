@@ -84,8 +84,12 @@ int main(int argc,char *argv[]) {
    //动态分配float数组内存根据用户输入的大小  (master)
   int nitems=100000;
     
+
+  if(argc==2)
+      nitems=atoi(argv[1]);
     
     float *data=NULL;
+    float *water;
 
     int sendCounts[k];
     int recvCounts[k]; // for ata
@@ -111,7 +115,7 @@ int main(int argc,char *argv[]) {
     
     //提前通知一下节点，各个节点要准备接收多少数
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
-    float *water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
+    water=receive_send_data_scav(data, sendCounts, &recvSingalCount);
 
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
@@ -130,21 +134,23 @@ int main(int argc,char *argv[]) {
     float *bucket=full_into_big_bucket(nbuckets,(recvSingalCount-2)*0.0001,buckets);
 
     send_signal_gather(recvSingalCount-2,recvCounts);
-    float * data1= receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
+    data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
     
     if(world_rank==0)
     {
         t_finish = clock();
         double t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
         printf("%f seconds\n", t_duration);
+        
 //        for (int i=0; i<nitems; i++) {
 //            cout<<data[i]<<endl;
 //        }
-        check(data1, nitems);
+        
+        check(data, nitems);
     }
     
-    free(data1);
     free(data);
+   
     MPI_Finalize();
     return 0;
 }
@@ -185,7 +191,7 @@ void send_signal_gather(int sendCounts,int *recvCounts)
 
 float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,int nbuckets)
 {
-    int roffset[]{0,recvCounts[0],recvCounts[0]+recvCounts[1],recvCounts[0]+recvCounts[1]+recvCounts[2]};
+    int roffset[]={0,recvCounts[0],recvCounts[0]+recvCounts[1],recvCounts[0]+recvCounts[1]+recvCounts[2]};
 
     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
     
@@ -197,7 +203,7 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
 
 float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts)
 {
-    int soffset[]{0,sendCounts[0],sendCounts[0]+sendCounts[1],sendCounts[0]+sendCounts[1]+sendCounts[2]};
+    int soffset[]={0,sendCounts[0],sendCounts[0]+sendCounts[1],sendCounts[0]+sendCounts[1]+sendCounts[2]};
     
     float *recvData=(float*)malloc(*recvCounts*sizeof(float));
     
@@ -312,5 +318,3 @@ int compare(const void* a, const void* b) {
         return 0;
     return 1;
 }
-
-
