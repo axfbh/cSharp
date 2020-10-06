@@ -171,12 +171,14 @@ void distribute_water(float *data,int ndata,float min,int bucketCount,floatMem *
 
 float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 {
+    cout<<"start:full_into_big_bucket"<<endl;
     float *bucket=create_big_bucket(nbuckets,bucketCount);
     
     for (int i=0,total=0; i<nbuckets; total+=buckets[i].length,i++) {
         copy(buckets[i].arr,buckets[i].arr+buckets[i].length,bucket+total);
         free(buckets[i].arr);
     }
+    cout<<"end:full_into_big_bucket"<<endl;
     free(buckets);
     return bucket;
 }
@@ -184,13 +186,14 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 
 void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 {
-      cout<<"start:send_signal_gather"<<endl;
+      
     MPI_Scatter(sendCounts, num, MPI_INT, recvCounts, num, MPI_INT, 0, MPI_COMM_WORLD);
     cout<<"myid is "<<rank<<" receive count is "<<*(int*)recvCounts<<endl;
 }
 
 void send_signal_gather(int sendCounts,int *recvCounts)
 {
+    cout<<"start:send_signal_gather"<<endl;
     MPI_Gather(&sendCounts,1,MPI_INT,recvCounts,1,MPI_INT,0,MPI_COMM_WORLD);
     cout<<"send_signal_gather"<<endl;
 }
