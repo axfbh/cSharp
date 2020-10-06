@@ -108,7 +108,7 @@ int main(int argc,char *argv[]) {
             copy(buckets[i].arr,buckets[i].arr+buckets[i].length,data+total);
         }
         
-        free(buckets);
+        //free(buckets);
     }
     
     //提前通知一下节点，各个节点要准备接收多少数
@@ -199,7 +199,8 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
         sum +=recvCounts[i];
     }
     //cout<<"roffset"<<endl;
-    float *final_bucket= create_big_bucket(nbuckets,sendCounts);
+//     float *final_bucket= create_big_bucket(nbuckets,sendCounts);
+      float *final_bucket= = new float[nbuckets*sendCounts];
      cout<<"final_bucket"<<endl;
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     cout<<"receive_send_data_gatherv"<<endl;
