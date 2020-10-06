@@ -307,13 +307,13 @@ floatMem* create_small_buckests(int nbuckets,int bucketCount)
 float* create_big_bucket(int nbuckets, int bucketCount)
 {
  int ntotal = nbuckets * bucketCount;
-    float *bucket;
+   float *bucket = new float[ntotal];
   // Pointer to an array of more pointers to each bucket
-  if((bucket = (float *)calloc(ntotal, sizeof(float)))==NULL)
-  {
-      printf("failed apply the memory");
-      return NULL;
-  }
+//   if((bucket = (float *)calloc(ntotal, sizeof(float)))==NULL)
+//   {
+//       printf("failed apply the memory");
+//       return NULL;
+//   }
   // return the address of the array of pointers to float arrays
   return bucket;
 }
