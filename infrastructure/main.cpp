@@ -108,7 +108,7 @@ int main(int argc,char *argv[]) {
             copy(buckets[i].arr,buckets[i].arr+buckets[i].length,data+total);
         }
         
-        //free(buckets);
+        //delete[] buckets;
     }
     
     //提前通知一下节点，各个节点要准备接收多少数
@@ -124,7 +124,7 @@ int main(int argc,char *argv[]) {
     floatMem* buckets = create_small_buckests(nbuckets,bucketCount);
 
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
-    //free(water);
+    //delete[] water;
 
     //排序
     bucket_sort(nbuckets,buckets);
@@ -145,7 +145,7 @@ int main(int argc,char *argv[]) {
 //        }
         check(data, nitems);
     }
-    //free(data);
+    // delete[] data;
    
     MPI_Finalize();
     return 0;
@@ -167,9 +167,9 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
     
     for (int i=0,total=0; i<nbuckets; total+=buckets[i].length,i++) {
         copy(buckets[i].arr,buckets[i].arr+buckets[i].length,bucket+total);
-        //free(buckets[i].arr);
+        //delete[] buckets[i].arr;
     }
-    //free(buckets);
+    // delete[] buckets;
     return bucket;
 }
 
@@ -201,14 +201,14 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
     cout<<"final_bucket"<<endl;
     MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     cout<<"receive_send_data_gatherv"<<endl;
-    //free(roffset);
+     delete[] roffset;
     return final_bucket;
 }
 
 
 float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,int nbuckets)
 {
-    int *soffset = new int[nbuckets];
+int *soffset = new int[nbuckets];
     int sum = 0;
     for (int i=0; i<nbuckets; i++)
     {
@@ -216,11 +216,11 @@ float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,in
         sum +=sendCounts[i];
     }
 
-    
-    float *recvData=(float*)malloc(*recvCounts*sizeof(float));
+    float *recvData=new float[*recvCounts];
     
     MPI_Scatterv(sendData, sendCounts, soffset, MPI_FLOAT, recvData, *recvCounts, MPI_FLOAT, 0, MPI_COMM_WORLD);  // 分发数据
-    //free(soffset);
+    //delete[] soffset;
+    cout<<"receive_send_data_scav"<<endl;
     return recvData;
 }
 
@@ -230,7 +230,7 @@ float *distribute_water_to_processor(int ndata,float max, float min, int nbucket
 {
     //drand48 返回服从均匀分布的·[0.0, 1.0) 之间的 double 型随机数。
     //设置100000个随机值在[10,250000]范围内 (master)
-    float *data=(float*)malloc((ndata+8)*sizeof(float));
+    float *data=new float[ndata+8];
     for(int i=0;i<ndata;i++)
     {
         data[i]=drand48()*(max-min-1)+min;
@@ -277,13 +277,13 @@ void bucket_sort(int nbuckets,floatMem *buckets)
 
 floatMem* create_small_buckests(int nbuckets,int bucketCount)
 {
-    floatMem* buckets;
-       if((buckets = (floatMem *)calloc(nbuckets, sizeof(floatMem)))==NULL)
+ floatMem* buckets;
+       if((buckets = new floatMem[nbuckets])==NULL)
        {
            goto out;
        }
        for (int j=0; j<nbuckets; j++) {
-           if((buckets[j].arr = (float*)calloc(bucketCount, sizeof(float)))==NULL)
+           if((buckets[j].arr = new float[bucketCount])==NULL)
            {
                goto out;
            }
