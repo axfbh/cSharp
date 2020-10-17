@@ -32,10 +32,10 @@ int main(int argc, char* argv[])
   fix_boundaries2(h);
   dump_array<float, 2>(h, path);
     
-  double starttime = omp_get_wtime();
-  float dhg;
+
+float dhg;
 omp_set_num_threads(Nthread);
-std::cout<<omp_get_num_threads()<<std::endl;
+double starttime = omp_get_wtime();
 #pragma omp parallel
 {
       do
@@ -81,8 +81,10 @@ std::cout<<omp_get_num_threads()<<std::endl;
 }
   double endtime = omp_get_wtime();
   std::cout<<"time: "<<endtime-starttime<<std::endl;
-    
-    
+   #pragma omp single
+   {
+    std::cout<<omp_get_num_threads()<<std::endl;
+   }
   path = "plate1.fit";
   dump_array<float, 2>(h, path);
   std::cout << "Required " <<"nconverged "<<nconverged<<" , "<< iter << " iterations" << std::endl;
