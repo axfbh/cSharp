@@ -1,3 +1,5 @@
+// Sequential version of the bucket sort routine
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -83,7 +85,7 @@ int main(int argc,char *argv[]) {
   //多少（分桶）
   int nbuckets=1000/k;
    //动态分配float数组内存根据用户输入的大小  (master)
-  int nitems=3200000;
+  int nitems=1000000;
     
     
     float *data=NULL;
@@ -139,6 +141,10 @@ int main(int argc,char *argv[]) {
         t_finish = clock();
         double t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
         printf("%f seconds\n", t_duration);
+        
+//        for (int i=0; i<nitems; i++) {
+//            cout<<data[i]<<endl;
+//        }
         
         check(data, nitems);
     }
@@ -321,3 +327,5 @@ int compare(const void* a, const void* b) {
         return 0;
     return 1;
 }
+
+
