@@ -7,7 +7,7 @@
 // Load the multidimensional array template
 #include "arrayff.hxx"
 
-#define Nthread 4
+#define Nthread 1
 // Load the template functions to draw the hot and cold spots
 #include "draw.hxx"
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     
   double starttime = omp_get_wtime();
   float dhg;
-    
+   cout<<omp_get_num_threads()<<endl;
 omp_set_num_threads(Nthread);
 #pragma omp parallel
 {
