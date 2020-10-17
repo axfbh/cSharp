@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   const int npixx = npix;
   const int npixy = npix;
 //  const int ntotal = npixx * npixy;
-  std::string path = "/Users/user/Desktop/parallel/openmp/ass/ass3 2/infrastructure/img/plate0.fit";
+  std::string path = "plate0.fit";
   Array<float, 2> h(npixy, npixy), g(npixy, npixx); //h：表示上一次迭代的结果，g：表示这一次迭代的结果
 
   const int nrequired = (npixx-2) * (npixy-2); //允许最大的系数的个数
@@ -81,7 +81,7 @@ omp_set_num_threads(Nthread);
   std::cout<<"time: "<<endtime-starttime<<std::endl;
     
     
-  path = "/Users/user/Desktop/parallel/openmp/ass/ass3 2/infrastructure/img/plate1.fit";
+  path = "plate1.fit";
   dump_array<float, 2>(h, path);
   std::cout << "Required " <<"nconverged "<<nconverged<<" , "<< iter << " iterations" << std::endl;
 }
