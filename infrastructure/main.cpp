@@ -69,7 +69,7 @@ int main(int argc,char *argv[]) {
     int world_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     
-    cout<<"num process"<<k<<endl;
+    cout<<k<<endl;
     if(world_size<4)
     {
         cout<<"processor is not enough" <<endl;
@@ -83,7 +83,7 @@ int main(int argc,char *argv[]) {
   //多少（分桶）
   int nbuckets=1000/k;
    //动态分配float数组内存根据用户输入的大小  (master)
-  int nitems=100000;
+  int nitems=1000000;
     
     
     float *data=NULL;
@@ -99,7 +99,7 @@ int main(int argc,char *argv[]) {
         // 每个桶的范围=(max-min)/空桶数量+1 。
         float bucketCount = ((xmax - xmin) / k)+1;
         
-        floatMem* buckets = create_small_buckests(k,bucketCount+2);
+        floatMem* buckets = create_small_buckests(k,nitems/2);
         data = distribute_water_to_processor(nitems,xmax ,xmin, k, bucketCount, buckets);
 
         
@@ -114,39 +114,35 @@ int main(int argc,char *argv[]) {
     //提前通知一下节点，各个节点要准备接收多少数
     send_signal_sca(sendCounts,&recvSingalCount,world_rank,1);
     water=receive_send_data_scav(data, sendCounts, &recvSingalCount,k);
-    cout<<"receive_send_data_scav"<<endl;
+    
     xmax = water[recvSingalCount-1];
     xmin = water[recvSingalCount-2];
     
     //for each process
-    float bucketCount = ((xmax - xmin) / nbuckets)+1;
+    float bucketCount = ((xmax - xmin) / k)+1;;
 
-    floatMem* buckets = create_small_buckests(nbuckets,bucketCount);
-    cout<<"create_small_buckests"<<endl;
+    floatMem* buckets = create_small_buckests(nbuckets,nitems);
+
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
-    cout<<"distribute_water"<<endl;
     delete[] water;
 
     //排序
     bucket_sort(nbuckets,buckets);
-    
+
     float *bucket=full_into_big_bucket(nbuckets,bucketCount,buckets);
-    cout<<"full_into_big_bucket"<<endl;
-    
+
     send_signal_gather(recvSingalCount-2,recvCounts);
     data = receive_send_data_gatherv(bucket,recvSingalCount-2,recvCounts,k);
-    cout<<"receive_send_data_gatherv"<<endl;
+    
     if(world_rank==0)
     {
         t_finish = clock();
         double t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
         printf("%f seconds\n", t_duration);
         
-//        for (int i=0; i<nitems; i++) {
-//            cout<<data[i]<<endl;
-//        }
         check(data, nitems);
     }
+    
     delete[] data;
    
     MPI_Finalize();
@@ -167,7 +163,8 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 {
     float *bucket=create_big_bucket(nbuckets,bucketCount);
     
-    for (int i=0,total=0; i<nbuckets; total+=buckets[i].length,i++) {
+    for (int i=0,total=0; i<nbuckets; total+=buckets[i].length,i++)
+    {
         copy(buckets[i].arr,buckets[i].arr+buckets[i].length,bucket+total);
         delete[] buckets[i].arr;
     }
@@ -178,7 +175,6 @@ float *full_into_big_bucket(int nbuckets, int bucketCount,floatMem* buckets)
 
 void send_signal_sca(void *sendCounts,void *recvCounts, int rank,int num)
 {
-      
     MPI_Scatter(sendCounts, num, MPI_INT, recvCounts, num, MPI_INT, 0, MPI_COMM_WORLD);
     cout<<"myid is "<<rank<<" receive count is "<<*(int*)recvCounts<<endl;
 }
@@ -197,16 +193,18 @@ float* receive_send_data_gatherv(float *sendData,int sendCounts,int *recvCounts,
         roffset[i]=sum;
         sum +=recvCounts[i];
     }
-    float *bucket = create_big_bucket(nbuckets,sendCounts);
-    MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
+
+    float *final_bucket= create_big_bucket(nbuckets,sendCounts);
+    
+    MPI_Gatherv(sendData, sendCounts, MPI_FLOAT, final_bucket, recvCounts, roffset, MPI_FLOAT, 0, MPI_COMM_WORLD);
     delete[] roffset;
-    return bucket;
+    return final_bucket;
 }
 
 
 float* receive_send_data_scav(float *sendData,int *sendCounts,int *recvCounts,int nbuckets)
 {
-int *soffset = new int[nbuckets];
+    int *soffset = new int[nbuckets];
     int sum = 0;
     for (int i=0; i<nbuckets; i++)
     {
@@ -274,12 +272,13 @@ void bucket_sort(int nbuckets,floatMem *buckets)
 
 floatMem* create_small_buckests(int nbuckets,int bucketCount)
 {
- floatMem* buckets;
+    floatMem* buckets;
        if((buckets = new floatMem[nbuckets])==NULL)
        {
            goto out;
        }
-       for (int j=0; j<nbuckets; j++) {
+       for (int j=0; j<nbuckets; j++)
+       {
            if((buckets[j].arr = new float[bucketCount])==NULL)
            {
                goto out;
@@ -301,9 +300,12 @@ floatMem* create_small_buckests(int nbuckets,int bucketCount)
 
 float* create_big_bucket(int nbuckets, int bucketCount)
 {
-    int ntotal = nbuckets * bucketCount;
-    float *aa = new float[ntotal];
-    return aa;
+ int ntotal = nbuckets * bucketCount;
+
+  // Pointer to an array of more pointers to each bucket
+   float *aa = new float[ntotal];
+  // return the address of the array of pointers to float arrays
+  return aa;
 }
 
 /*****************************************************************************/
