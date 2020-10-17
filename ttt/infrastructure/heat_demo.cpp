@@ -7,14 +7,15 @@
 // Load the multidimensional array template
 #include "arrayff.hxx"
 
-#define Nthread 1
+
 // Load the template functions to draw the hot and cold spots
 #include "draw.hxx"
 
 int main(int argc, char* argv[])
 {
   const float tol = 0.00001; //误差
-  const int npix = 100; //允许的最大未知数个数
+  const int npix = atoi(argv[1]); //允许的最大未知数个数
+  const int Nthread = atoi(argv[2]);
   const int npixx = npix;
   const int npixy = npix;
 //  const int ntotal = npixx * npixy;
