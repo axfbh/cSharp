@@ -87,6 +87,6 @@ double starttime = omp_get_wtime();
   #pragma omp parallel
 	{
 		// omp_set_num_threads(6);	// Do not call it in parallel region
-		printf("ID: %d, Max proc: %d, Num threads: %d \n",omp_get_thread_num(), omp_get_num_procs()(), omp_get_num_threads());
+		printf("ID: %d, Max proc: %d, Num threads: %d \n",omp_get_thread_num(), omp_get_num_procs(), omp_get_num_threads());
 	}
 }
