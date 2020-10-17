@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
   const float tol = 0.00001; //误差
   const int npix = atoi(argv[1]); //允许的最大未知数个数
   const int Nthread = atoi(argv[2]);
+   std::cout<<Nthread<<std::endl;
   const int npixx = npix;
   const int npixy = npix;
 //  const int ntotal = npixx * npixy;
