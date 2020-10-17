@@ -7,7 +7,7 @@
 
 using namespace std;
 
-using ULONG = unsigned long;
+typedef unsigned long ULONG;
 ULONG calcA(const long a,const int count,const long m);
 ULONG calcC(const long a,const long c,const int count,const long m);
 ULONG Associativity(const long a ,const long b,const long m);
