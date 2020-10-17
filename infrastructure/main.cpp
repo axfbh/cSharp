@@ -77,15 +77,14 @@ int main(int argc,char *argv[]) {
         cout<<"processor is not enough" <<endl;
         return 0;
     }
-    t_start = clock();
-    
+
    float xmin = 10.0;
    float xmax = 250000;
 
   //多少（分桶）
   int nbuckets=1000/k;
    //动态分配float数组内存根据用户输入的大小  (master)
-  int nitems=28000000;
+  int nitems=100000;
     
     
     float *data=NULL;
@@ -98,6 +97,7 @@ int main(int argc,char *argv[]) {
     
     if(world_rank==0)
     {
+        t_start = clock();
         // 每个桶的范围=(max-min)/空桶数量+1 。
         float bucketCount = ((xmax - xmin) / k)+1;
         
