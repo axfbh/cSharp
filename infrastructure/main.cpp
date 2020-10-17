@@ -72,11 +72,11 @@ int main(int argc,char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     
     cout<<k<<endl;
-    if(world_size<4)
-    {
-        cout<<"processor is not enough" <<endl;
-        return 0;
-    }
+//     if(world_size<4)
+//     {
+//         cout<<"processor is not enough" <<endl;
+//         return 0;
+//     }
 
    float xmin = 10.0;
    float xmax = 250000;
