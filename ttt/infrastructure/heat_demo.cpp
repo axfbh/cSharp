@@ -84,4 +84,9 @@ double starttime = omp_get_wtime();
   path = "plate1.fit";
   dump_array<float, 2>(h, path);
   std::cout << "Required " <<"nconverged "<<nconverged<<" , "<< iter << " iterations" << std::endl;
+  #pragma omp parallel
+	{
+		// omp_set_num_threads(6);	// Do not call it in parallel region
+		printf("ID: %d, Max threads: %d, Num threads: %d \n",omp_get_thread_num(), omp_get_max_threads(), omp_get_num_threads());
+	}
 }
