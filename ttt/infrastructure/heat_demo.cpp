@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   const float tol = 0.00001; //误差
   const int npix = atoi(argv[1]); //允许的最大未知数个数
   const int Nthread = atoi(argv[2]);
-   std::cout<<Nthread<<std::endl;
+
   const int npixx = npix;
   const int npixy = npix;
 //  const int ntotal = npixx * npixy;
@@ -81,10 +81,6 @@ double starttime = omp_get_wtime();
 }
   double endtime = omp_get_wtime();
   std::cout<<"time: "<<endtime-starttime<<std::endl;
-   #pragma omp single
-   {
-    std::cout<<omp_get_num_threads()<<std::endl;
-   }
   path = "plate1.fit";
   dump_array<float, 2>(h, path);
   std::cout << "Required " <<"nconverged "<<nconverged<<" , "<< iter << " iterations" << std::endl;
