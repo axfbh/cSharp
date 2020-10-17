@@ -34,8 +34,8 @@ int main(int argc, char* argv[])
     
   double starttime = omp_get_wtime();
   float dhg;
-  std::cout<<omp_get_num_threads()<<std::endl;
 omp_set_num_threads(Nthread);
+std::cout<<omp_get_num_threads()<<std::endl;
 #pragma omp parallel
 {
       do
