@@ -101,7 +101,7 @@ int main(int argc,char *argv[]) {
         // 每个桶的范围=(max-min)/空桶数量+1 。
         float bucketCount = ((xmax - xmin) / k)+1;
         
-        floatMem* buckets = create_small_buckests(k,nitems/2);
+        floatMem* buckets = create_small_buckests(k,nitems/k*2);
         data = distribute_water_to_processor(nitems,xmax ,xmin, k, bucketCount, buckets);
 
         
