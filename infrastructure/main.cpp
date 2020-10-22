@@ -123,7 +123,7 @@ int main(int argc,char *argv[]) {
     //for each process
     float bucketCount = ((xmax - xmin) / k)+1;;
 
-    floatMem* buckets = create_small_buckests(nbuckets,nitems*5);
+    floatMem* buckets = create_small_buckests(nbuckets,nitems);
 
     distribute_water(water, recvSingalCount-2, xmin, bucketCount, buckets);
     delete[] water;
