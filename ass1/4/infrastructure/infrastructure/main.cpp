@@ -65,7 +65,7 @@ int main()
 
     long N = pow(2, 32);
     int step = (int)(N/world_size);
-  
+    t_start = clock();
     double value = calculate_pi(step);
     
     double result = 0.0;
@@ -73,7 +73,7 @@ int main()
     
     if (world_rank == 0) {
         count += value;
-        t_start = clock();
+        clock_t c_start = clock();
         for(int i = 1; i < world_size; i++) {
             MPI_Recv(&value, 1, MPI_DOUBLE, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             count += value;
