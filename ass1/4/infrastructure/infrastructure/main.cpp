@@ -52,7 +52,7 @@ int main()
         return 0;
     }
     
-    t_start = clock();
+    
     //partiton
     {
         int i =0;
@@ -73,13 +73,17 @@ int main()
     
     if (world_rank == 0) {
         count += value;
+        t_start = clock();
         for(int i = 1; i < world_size; i++) {
             MPI_Recv(&value, 1, MPI_DOUBLE, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             count += value;
         }
+        clock_t c_end = clock();
+        double t_duration = (double)(c_end - c_start) / CLOCKS_PER_SEC;
         result = 4.0 * (count / (double)N);
         t_finish = clock();
-        double t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
+        printf("%.15lf communication seconds\n", t_duration);
+        t_duration = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
         printf("pi is : %0.15f\n",result);
         printf("%f seconds\n", t_duration);
     }
